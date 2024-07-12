@@ -2,22 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Video Player</title>
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>Video Player</title>
 </head>
 <body>
   <div class="video-container">
-    <video id="videoPlayer" controls>
-      <source src="your-video-file.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="gesture-overlay">
-      <div class="gesture-zone left"></div>
-      <div class="gesture-zone middle"></div>
-      <div class="gesture-zone right"></div>
+    <div id="video_player">
+      <div class="videoSpinner">
+
+      </div>
+      <video preload="metadata" id="main-video">
+        <source src="" id="id_videoSource" type="video/mp4">
+        <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"> -->
+      </video>
+      <div class="thumbnail"></div>
+      <div class="progressAreaTime">0:00</div>
+
+      <div class="controls">
+        <div class="progress-area">
+          <!-- <style data-css-webkit-slider-thumb="cwst" type="text/css"></style> -->
+          <input type="range" name="progressBar" id="id_progressBar" step="0.1" min="0" max="100" value="0" class="progress-bar">
+          <span></span>
+        </div>
+
+        <div class="controls-list">
+          <div class="controls-left">
+            <span class="icon">
+              <i class="material-icons play_pause">play_arrow</i>
+            </span>
+            <span class="icon">
+              <i class="material-icons volume">volume_up</i>
+              <input type="range" min="0" max="100" value="100" class="volume_range" />
+            </span>
+            <div class="timer">
+              <span class="current">0:00</span> /
+              <span class="duration">0:00</span>
+            </div>
+          </div>
+
+          <div class="controls-right">
+            <span class="icon">
+              <i class="material-icons settingsBtn">settings</i>
+            </span>
+            <span class="icon">
+              <i class="material-icons picture_in_picutre">picture_in_picture_alt</i>
+            </span>
+            <span class="icon">
+              <i class="material-icons fullscreen">fullscreen</i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings">
+        <div class="playback">
+          <span>Playback Speed</span>
+          <ul>
+            <li data-speed="0.25">0.25</li>
+            <li data-speed="0.5">0.5</li>
+            <li data-speed="0.75">0.75</li>
+            <li data-speed="1" class="active">Normal</li>
+            <li data-speed="1.25">1.25</li>
+            <li data-speed="1.5">1.5</li>
+            <li data-speed="1.75">1.75</li>
+            <li data-speed="2">2</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
+
 </body>
 </html>
